@@ -22,7 +22,7 @@ class PickFromDatabase<T : Any>(dbConfig: DbConfig, selectQuery: String) : Anony
         stmt.close()
         conn.close()
 
-        require(list.isNotEmpty(), { "values cannot be empty while using PickFromDatabase" })
+        require(list.isNotEmpty()) { "values cannot be empty while using PickFromDatabase" }
         return list
     }
 

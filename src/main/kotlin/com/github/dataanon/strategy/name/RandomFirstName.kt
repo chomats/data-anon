@@ -8,7 +8,7 @@ import com.github.dataanon.strategy.list.PickFromFile
 class RandomFirstName(sourceFilePath: String = "/data/first_names.dat") : AnonymizationStrategy<String> {
 
     init {
-        require(sourceFilePath.isNotBlank(), {"sourceFilePath can not be empty while using RandomFirstName"})
+        require(sourceFilePath.isNotBlank()) { "sourceFilePath can not be empty while using RandomFirstName" }
     }
 
     private val pickFromFile = PickFromFile<String>(filePath = sourceFilePath)

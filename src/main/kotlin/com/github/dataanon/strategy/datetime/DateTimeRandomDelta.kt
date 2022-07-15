@@ -14,7 +14,7 @@ class DateTimeRandomDelta(private val duration: Duration) : AnonymizationStrateg
         val randomSeconds = rand(durationInSeconds)
         return when (Random().nextBoolean()) {
             true -> field.oldValue.plusSeconds(randomSeconds)
-            false -> field.oldValue.minusSeconds(randomSeconds);
+            false -> field.oldValue.minusSeconds(randomSeconds)
         }
     }
 

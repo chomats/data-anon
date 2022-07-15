@@ -34,7 +34,7 @@ abstract class Strategy {
     private fun executeOnTable(table: Table, progressBarEnabled: Boolean, latch: CountDownLatch) {
         try {
             val reader = TableReader(sourceDbConfig(), table)
-            val progressBar = ProgressBarGenerator(progressBarEnabled, table.name, { reader.totalNoOfRecords() })
+            val progressBar = ProgressBarGenerator(progressBarEnabled, table.name) { reader.totalNoOfRecords() }
             val writer = TableWriter(destDbConfig(), table, progressBar)
 
             Flux.fromIterable(Iterable { reader }).map { table.execute(it) }.subscribe(writer)
@@ -45,6 +45,6 @@ abstract class Strategy {
         }
     }
 
-    abstract protected fun sourceDbConfig(): DbConfig
-    abstract protected fun destDbConfig():   DbConfig
+    protected abstract fun sourceDbConfig(): DbConfig
+    protected abstract fun destDbConfig():   DbConfig
 }

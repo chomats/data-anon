@@ -11,7 +11,7 @@ import kotlin.reflect.KClass
 open class PickFromFile<T: Any>(filePath: String) : AnonymizationStrategy<T>, RandomSampling {
 
     init {
-        require(filePath.isNotBlank(), {"filePath can not be empty while using PickFromFile"})
+        require(filePath.isNotBlank()) { "filePath can not be empty while using PickFromFile" }
     }
 
     private val values = FlatFileContentStore.getFileContentByPath(filePath)

@@ -13,7 +13,7 @@ import com.github.dataanon.strategy.string.SupportedStringTemplatePlaceholders.R
 class StringTemplate(private val template: String) : AnonymizationStrategy<String> {
 
     init {
-        require(template.isNotBlank(), {"template can not be empty while using StringTemplate"})
+        require(template.isNotBlank()) { "template can not be empty while using StringTemplate" }
     }
 
     override fun anonymize(field: Field<String>, record: Record): String = SupportedStringTemplatePlaceholders
@@ -23,15 +23,15 @@ class StringTemplate(private val template: String) : AnonymizationStrategy<Strin
 }
 
 object SupportedStringTemplatePlaceholders {
-    val RANDOM_FN               = "random_fn"
-    val RANDOM_LN               = "random_ln"
-    val RANDOM_FULL_NAME        = "random_full_name"
-    val RANDOM_EMAIL            = "random_email"
-    val RANDOM_ALPHA            = "random_alpha"
-    val RANDOM_ALPHA_NUMERIC    = "random_alpha_numeric"
+    const val RANDOM_FN               = "random_fn"
+    const val RANDOM_LN               = "random_ln"
+    const val RANDOM_FULL_NAME        = "random_full_name"
+    const val RANDOM_EMAIL            = "random_email"
+    const val RANDOM_ALPHA            = "random_alpha"
+    const val RANDOM_ALPHA_NUMERIC    = "random_alpha_numeric"
 
-    val ROW_NUMBER              = "row_number"
-    val FIELD_VALUE             = "field_value"
+    const val ROW_NUMBER              = "row_number"
+    const val FIELD_VALUE             = "field_value"
 
     private val map = mapOf(RANDOM_FN               to StringTemplateEvaluationFunctions.randomFirstName,
                             RANDOM_LN               to StringTemplateEvaluationFunctions.randomLastName,

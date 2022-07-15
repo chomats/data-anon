@@ -53,9 +53,9 @@ abstract class Table(val name: String) {
     internal fun generateCountQuery(): String =
         "SELECT COUNT(1) FROM $name $whereCondition".trim()
 
-    abstract internal fun generateWriteQuery(): String
+    internal abstract fun generateWriteQuery(): String
 
-    abstract internal fun allColumns(): List<String>
+    internal abstract fun allColumns(): List<String>
 
     abstract fun allColumnObjects(): List<Column>
 

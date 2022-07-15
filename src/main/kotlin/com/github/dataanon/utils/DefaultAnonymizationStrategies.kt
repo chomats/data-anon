@@ -15,12 +15,12 @@ object DefaultAnonymizationStrategies {
     private val defaultStrategies = mutableMapOf<KClass<*>, AnonymizationStrategy<*>>()
 
     init {
-        defaultStrategies.put(String::class,    RandomAlphabetic())
-        defaultStrategies.put(Boolean::class,   RandomBooleanTrueFalse())
-        defaultStrategies.put(Int::class,       RandomInt())
-        defaultStrategies.put(Float::class,     RandomFloat())
-        defaultStrategies.put(Double::class,    RandomDouble())
-        defaultStrategies.put(NullValue::class, CopyAnonymizationStrategy<NullValue>())
+        defaultStrategies[String::class] = RandomAlphabetic()
+        defaultStrategies[Boolean::class] = RandomBooleanTrueFalse()
+        defaultStrategies[Int::class] = RandomInt()
+        defaultStrategies[Float::class] = RandomFloat()
+        defaultStrategies[Double::class] = RandomDouble()
+        defaultStrategies[NullValue::class] = CopyAnonymizationStrategy<NullValue>()
     }
 
     fun getAnonymizationStrategy(kClass: KClass<*>) = if (defaultStrategies[kClass] != null) defaultStrategies[kClass]

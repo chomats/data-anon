@@ -104,9 +104,9 @@ class TableWriter(dbConfig: DbConfig, private val table: Table, private val prog
     }
 
     override fun hookFinally(type: SignalType?) {
-        progressBar?.stop()
-        stmt?.close()
-        conn?.close()
+        progressBar.stop()
+        stmt.close()
+        conn.close()
     }
 
 }

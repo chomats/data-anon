@@ -9,8 +9,8 @@ class RandomFullName(firstNameSourceFilePath: String = "/data/first_names.dat",
                      lastNameSourceFilePath:  String = "/data/last_names.dat") : AnonymizationStrategy<String> {
 
     init {
-        require(firstNameSourceFilePath.isNotBlank(), {"firstNameSourceFilePath can not be empty while using RandomFullName"})
-        require(lastNameSourceFilePath.isNotBlank(),  {"lastNameSourceFilePath can not be empty while using RandomFullName"})
+        require(firstNameSourceFilePath.isNotBlank()) { "firstNameSourceFilePath can not be empty while using RandomFullName" }
+        require(lastNameSourceFilePath.isNotBlank()) { "lastNameSourceFilePath can not be empty while using RandomFullName" }
     }
 
     private val pickFirstNames = PickFromFile<String>(filePath = firstNameSourceFilePath)
