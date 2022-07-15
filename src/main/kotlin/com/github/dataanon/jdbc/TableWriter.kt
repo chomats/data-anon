@@ -32,7 +32,7 @@ class TableWriter(dbConfig: DbConfig, private val table: Table, private val prog
         this.fields = table.allColumnObjects()
     }
 
-    override fun hookOnSubscribe(subscription: Subscription?) {
+    override fun hookOnSubscribe(subscription: Subscription) {
         request(1)
     }
 
@@ -103,7 +103,7 @@ class TableWriter(dbConfig: DbConfig, private val table: Table, private val prog
         if (errorCount > 0) logger.severe { "On Complete total number of errors occurred is $errorCount for table ${table.name}" }
     }
 
-    override fun hookFinally(type: SignalType?) {
+    override fun hookFinally(type: SignalType) {
         progressBar.stop()
         stmt.close()
         conn.close()

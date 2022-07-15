@@ -21,7 +21,7 @@ open class PickFromFile<T: Any>(filePath: String) : AnonymizationStrategy<T>, Ra
     }
 
     @Suppress("UNCHECKED_CAST")
-    private inline fun cast(str: String, type: KClass<out T>): T = when(type){
+    private fun cast(str: String, type: KClass<out T>): T = when(type){
         Int::class          -> str.toInt()
         Float::class        -> str.toFloat()
         Double::class       -> str.toDouble()

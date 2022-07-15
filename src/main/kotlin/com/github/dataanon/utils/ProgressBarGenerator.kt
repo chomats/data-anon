@@ -1,6 +1,7 @@
 package com.github.dataanon.utils
 
 import me.tongfei.progressbar.ProgressBar
+import me.tongfei.progressbar.ProgressBarBuilder
 import me.tongfei.progressbar.ProgressBarStyle
 
 class ProgressBarGenerator(private val progressBarEnabled: Boolean = true, taskName: String, initialMaxFn: () -> Int) {
@@ -8,12 +9,13 @@ class ProgressBarGenerator(private val progressBarEnabled: Boolean = true, taskN
     private lateinit var pb: ProgressBar
 
     init {
-        if (progressBarEnabled)
-            pb = ProgressBar(taskName, initialMaxFn().toLong(), ProgressBarStyle.ASCII)
+        if (progressBarEnabled) {
+            pb = ProgressBarBuilder().setTaskName(taskName).setInitialMax(initialMaxFn().toLong()).setStyle(ProgressBarStyle.ASCII).build()
+        }
     }
 
     fun start() {
-        if (progressBarEnabled) pb.start()
+        // if (progressBarEnabled) pb.start()
     }
 
     fun step() {
@@ -21,7 +23,7 @@ class ProgressBarGenerator(private val progressBarEnabled: Boolean = true, taskN
     }
 
     fun stop() {
-        if (progressBarEnabled) pb.stop()
+        // if (progressBarEnabled) pb.stop()
     }
 
 }

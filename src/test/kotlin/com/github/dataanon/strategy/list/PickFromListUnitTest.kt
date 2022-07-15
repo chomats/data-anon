@@ -1,11 +1,8 @@
-@file:Suppress("UnusedImport", "UnusedImport")
-
 package com.github.dataanon.strategy.list
 
 import com.github.dataanon.Matchers
 import com.github.dataanon.model.Field
 import com.github.dataanon.model.Record
-import com.github.dataanon.strategy.list.PickFromList
 import io.kotlintest.should
 import io.kotlintest.shouldThrow
 import io.kotlintest.specs.FunSpec

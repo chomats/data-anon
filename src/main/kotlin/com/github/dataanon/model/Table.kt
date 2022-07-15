@@ -6,7 +6,7 @@ import com.github.dataanon.utils.DefaultAnonymizationStrategies
 
 abstract class Table(val name: String) {
     private val columnStrategyContainer = mutableMapOf<String, ColumnStrategy>()
-    internal var whereCondition = ""
+    private var whereCondition = ""
     internal var limit = -1
     internal var allowedErrors = 1000
     internal var batchSize = 1000
@@ -40,7 +40,7 @@ abstract class Table(val name: String) {
     protected fun columnNames() = columnStrategyContainer.keys.toList()
 
     internal fun execute(record: Record): Record {
-        columnStrategyContainer.forEach { columnName, columnStrategy ->
+        columnStrategyContainer.forEach { (columnName, columnStrategy) ->
             val field = record.find(columnName)
             field.newValue = columnStrategy.anonymize(field, record)
         }

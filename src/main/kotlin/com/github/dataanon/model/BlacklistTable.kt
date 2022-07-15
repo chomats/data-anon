@@ -1,6 +1,6 @@
 package com.github.dataanon.model
 
-class BlacklistTable(name: String, val primaryKey: List<String>) : Table(name) {
+class BlacklistTable(name: String, private val primaryKey: List<String>) : Table(name) {
 
     override fun generateWriteQuery(): String =
         StringBuilder("UPDATE $name SET ").apply {

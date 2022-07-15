@@ -34,8 +34,7 @@ class TableReader(dbConfig: DbConfig, private val table: Table) : Iterator<Recor
     private fun toField(columnName: String)     = Field(columnName, columnValue(columnName))
 
     private fun columnValue(columnName: String): Any {
-        val value = rs.getObject(columnName)
-        return when (value) {
+        return when (val value = rs.getObject(columnName)) {
             is Date -> value.toLocalDate()
             is Timestamp -> value.toLocalDateTime()
             else -> value ?: NullValue

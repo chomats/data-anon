@@ -60,7 +60,7 @@ class RandomFormattedStringUnitTest : FunSpec(), Matchers {
 
             val anonymized = randomFormattedString.anonymize(field, emptyRecord)
 
-            val matcher    = Pattern.compile("([A-Z]{5})([0-9]{4})-([A-Z]{1})").matcher(anonymized)
+            val matcher    = Pattern.compile("([A-Z]{5})(\\d{4})-([A-Z])").matcher(anonymized)
             matcher.matches() shouldBe true
         }
     }
