@@ -12,8 +12,7 @@ object RandomUtils {
             for (index in 1..length) {
                 append(chars[random.nextInt(randomBound)])
             }
-        }
-                .toString()
+        }.toString()
     }
 
     fun generateRandomFloat(from: Float = 0.0f, to:Float = 100.0f): Float {
