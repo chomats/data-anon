@@ -84,6 +84,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.github.dataanon</groupId>
+            <artifactId>data-anon-lib</artifactId>
+            <version>0.9.8</version>
+        </dependency>
+        <dependency>
             <groupId>io.projectreactor</groupId>
             <artifactId>reactor-core</artifactId>
             <version>3.3.0.RELEASE</version>
